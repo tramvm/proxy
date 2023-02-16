@@ -2,12 +2,12 @@
 ############################################################
 # Squid Proxy Installer
 # Author: Yujin Boby
-# Email: info@serverok.in
-# Github: https://github.com/serverok/squid-proxy-installer/
-# Web: https://serverok.in/squid
+# Email: info@tramvm.in
+# Github: https://github.com/tramvm/proxy/
+# Web: https://workspace.tramvm.com
 ############################################################
 # For paid support, contact
-# https://serverok.in/contact
+# https://tramvm.in/contact
 ############################################################
 
 if [ `whoami` != root ]; then
@@ -57,6 +57,6 @@ elif [ $SOK_OS == "centos8" ]; then
     systemctl reload squid
 else
     echo "OS NOT SUPPORTED.\n"
-    echo "Contact https://serverok.in/contact to add support for your OS."
+    echo "Contact https://tramvm.in/contact to add support for your OS."
     exit 1;
 fi

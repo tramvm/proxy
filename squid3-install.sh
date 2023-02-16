@@ -1,13 +1,14 @@
 #!/bin/bash
 ############################################################
 # Squid Proxy Installer
-# Author: Yujin Boby
-# Email: admin@serverOk.in
-# Github: https://github.com/serverok/squid-proxy-installer/
-# Web: https://serverok.in/squid
+# Original Author: Yujin Boby
+# Edit Workspace.Gold
+# Email: workspace.gold@gmail.com
+# Github: https://github.com/tramvm/proxy/
+# Web: https://workspace.tramvm.com
 ############################################################
 # For paid support, contact
-# https://serverok.in/contact
+# https://workspace.tramvm.com
 ############################################################
 
 if [ `whoami` != root ]; then
@@ -15,13 +16,13 @@ if [ `whoami` != root ]; then
 	exit 1
 fi
 
-/usr/bin/wget --no-check-certificate -O /usr/local/bin/sok-find-os https://raw.githubusercontent.com/serverok/squid-proxy-installer/master/sok-find-os.sh > /dev/null 2>&1
+/usr/bin/wget --no-check-certificate -O /usr/local/bin/sok-find-os https://raw.githubusercontent.com/tramvm/proxy/master/sok-find-os.sh > /dev/null 2>&1
 chmod 755 /usr/local/bin/sok-find-os
 
-/usr/bin/wget --no-check-certificate -O /usr/local/bin/squid-uninstall https://raw.githubusercontent.com/serverok/squid-proxy-installer/master/squid-uninstall.sh > /dev/null 2>&1
+/usr/bin/wget --no-check-certificate -O /usr/local/bin/squid-uninstall https://raw.githubusercontent.com/tramvm/proxy/master/squid-uninstall.sh > /dev/null 2>&1
 chmod 755 /usr/local/bin/squid-uninstall
 
-/usr/bin/wget --no-check-certificate -O /usr/local/bin/squid-add-user https://raw.githubusercontent.com/serverok/squid-proxy-installer/master/squid-add-user.sh > /dev/null 2>&1
+/usr/bin/wget --no-check-certificate -O /usr/local/bin/squid-add-user https://raw.githubusercontent.com/tramvm/proxy/master/squid-add-user.sh > /dev/null 2>&1
 chmod 755 /usr/local/bin/squid-add-user
 
 if [[ -d /etc/squid/ || -d /etc/squid3/ ]]; then
@@ -35,7 +36,7 @@ if cat /etc/os-release | grep PRETTY_NAME | grep "Ubuntu 22.04"; then
     touch /etc/squid/passwd
     mv /etc/squid/squid.conf /etc/squid/squid.conf.bak
     /usr/bin/touch /etc/squid/blacklist.acl
-    /usr/bin/wget --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/serverok/squid-proxy-installer/master/conf/ubuntu-2204.conf
+    /usr/bin/wget --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/tramvm/proxy/master/conf/ubuntu-2204.conf
     if [ -f /sbin/iptables ]; then
         /sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT
         /sbin/iptables-save
@@ -48,7 +49,7 @@ elif cat /etc/os-release | grep PRETTY_NAME | grep "Ubuntu 20.04"; then
     touch /etc/squid/passwd
     /bin/rm -f /etc/squid/squid.conf
     /usr/bin/touch /etc/squid/blacklist.acl
-    /usr/bin/wget --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/serverok/squid-proxy-installer/master/squid.conf
+    /usr/bin/wget --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/tramvm/proxy/master/squid.conf
     if [ -f /sbin/iptables ]; then
         /sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT
         /sbin/iptables-save
@@ -61,7 +62,7 @@ elif cat /etc/os-release | grep PRETTY_NAME | grep "Ubuntu 18.04"; then
     touch /etc/squid/passwd
     /bin/rm -f /etc/squid/squid.conf
     /usr/bin/touch /etc/squid/blacklist.acl
-    /usr/bin/wget --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/serverok/squid-proxy-installer/master/squid.conf
+    /usr/bin/wget --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/tramvm/proxy/master/squid.conf
     /sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT
     /sbin/iptables-save
     service squid restart
@@ -72,7 +73,7 @@ elif cat /etc/os-release | grep PRETTY_NAME | grep "Ubuntu 16.04"; then
     touch /etc/squid/passwd
     /bin/rm -f /etc/squid/squid.conf
     /usr/bin/touch /etc/squid/blacklist.acl
-    /usr/bin/wget --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/serverok/squid-proxy-installer/master/squid.conf
+    /usr/bin/wget --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/tramvm/proxy/master/squid.conf
     /sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT
     /sbin/iptables-save
     service squid restart
@@ -83,7 +84,7 @@ elif cat /etc/*release | grep DISTRIB_DESCRIPTION | grep "Ubuntu 14.04"; then
     touch /etc/squid3/passwd
     /bin/rm -f /etc/squid3/squid.conf
     /usr/bin/touch /etc/squid3/blacklist.acl
-    /usr/bin/wget --no-check-certificate -O /etc/squid3/squid.conf https://raw.githubusercontent.com/serverok/squid-proxy-installer/master/squid.conf
+    /usr/bin/wget --no-check-certificate -O /etc/squid3/squid.conf https://raw.githubusercontent.com/tramvm/proxy/master/squid.conf
     /sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT
     /sbin/iptables-save
     service squid3 restart
@@ -98,7 +99,7 @@ elif cat /etc/os-release | grep PRETTY_NAME | grep "jessie"; then
     touch /etc/squid3/passwd
     /bin/rm -f /etc/squid3/squid.conf
     /usr/bin/touch /etc/squid3/blacklist.acl
-    /usr/bin/wget --no-check-certificate -O /etc/squid3/squid.conf https://raw.githubusercontent.com/serverok/squid-proxy-installer/master/squid.conf
+    /usr/bin/wget --no-check-certificate -O /etc/squid3/squid.conf https://raw.githubusercontent.com/tramvm/proxy/master/squid.conf
     /sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT
     /sbin/iptables-save
     service squid3 restart
@@ -112,7 +113,7 @@ elif cat /etc/os-release | grep PRETTY_NAME | grep "stretch"; then
     touch /etc/squid/passwd
     /bin/rm -f /etc/squid/squid.conf
     /usr/bin/touch /etc/squid/blacklist.acl
-    /usr/bin/wget --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/serverok/squid-proxy-installer/master/squid.conf
+    /usr/bin/wget --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/tramvm/proxy/master/squid.conf
     /sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT
     /sbin/iptables-save
     systemctl enable squid
@@ -125,7 +126,7 @@ elif cat /etc/os-release | grep PRETTY_NAME | grep "buster"; then
     touch /etc/squid/passwd
     /bin/rm -f /etc/squid/squid.conf
     /usr/bin/touch /etc/squid/blacklist.acl
-    /usr/bin/wget --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/serverok/squid-proxy-installer/master/squid.conf
+    /usr/bin/wget --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/tramvm/proxy/master/squid.conf
     /sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT
     /sbin/iptables-save
     systemctl enable squid
@@ -134,7 +135,7 @@ elif cat /etc/os-release | grep PRETTY_NAME | grep "CentOS Linux 7"; then
     yum install squid httpd-tools -y
     /bin/rm -f /etc/squid/squid.conf
     /usr/bin/touch /etc/squid/blacklist.acl
-    /usr/bin/wget --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/serverok/squid-proxy-installer/master/conf/squid-centos7.conf
+    /usr/bin/wget --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/tramvm/proxy/master/conf/squid-centos7.conf
     systemctl enable squid
     systemctl restart squid
     firewall-cmd --zone=public --permanent --add-port=80/tcp
@@ -143,19 +144,19 @@ elif cat /etc/os-release | grep PRETTY_NAME | grep "CentOS Linux 8"; then
     yum install squid httpd-tools -y
     /bin/rm -f /etc/squid/squid.conf
     /usr/bin/touch /etc/squid/blacklist.acl
-    /usr/bin/wget --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/serverok/squid-proxy-installer/master/conf/squid-centos7.conf
+    /usr/bin/wget --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/tramvm/proxy/master/conf/squid-centos7.conf
     systemctl enable squid
     systemctl restart squid
     firewall-cmd --zone=public --permanent --add-port=80/tcp
     firewall-cmd --reload
 else
     echo "OS NOT SUPPORTED.\n"
-    echo "Contact https://serverok.in/contact to add support for your OS."
+    echo "Contact https://tramvm.in/contact to add support for your OS."
     exit 1;
 fi
 
 echo
-echo "Thank you for using Squid Proxy Installer by ServerOk"
+echo "Thank you for using Squid Proxy Installer by tramvm"
 echo "To create a proxy user, run command: squid-add-user"
-echo "To change squid proxy port, see https://serverok.in/how-to-change-port-of-squid-proxy-server"
+echo "To change squid proxy port, see https://tramvm.in/how-to-change-port-of-squid-proxy-server"
 echo 

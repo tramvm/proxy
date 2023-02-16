@@ -2,12 +2,12 @@
 ############################################################
 # Find OS
 # Author: Yujin Boby
-# Email: info@serverok.in
-# Github: https://github.com/serverok/squid-proxy-installer/
-# Web: https://serverok.in/squid
+# Email: info@tramvm.in
+# Github: https://github.com/tramvm/proxy/
+# Web: https://workspace.tramvm.com
 ############################################################
 # For Linux Server Management, contact
-# https://serverok.in/contact
+# https://tramvm.in/contact
 ############################################################
 
 if cat /etc/os-release | grep PRETTY_NAME | grep "Ubuntu 22.04" > /dev/null; then
@@ -32,6 +32,6 @@ elif cat /etc/os-release | grep PRETTY_NAME | grep "CentOS Linux 8" > /dev/null;
     echo "centos8"
 else
     echo "OS NOT SUPPORTED.\n"
-    echo "Contact https://serverok.in/contact to add support for your os."
+    echo "Contact https://tramvm.in/contact to add support for your os."
     exit 1;
 fi

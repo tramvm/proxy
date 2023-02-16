@@ -1,6 +1,6 @@
-# Squid Proxy Installer
+# Squid Proxy Installer (Original Author: Yujin Boby)
 
-https://serverok.in/squid
+https://workspace.tramvm.com
 
 Auto install Squid 3 proxy on following linux OS.
 
@@ -14,7 +14,7 @@ Auto install Squid 3 proxy on following linux OS.
 To install, run the script
 
 ```
-wget https://raw.githubusercontent.com/serverok/squid-proxy-installer/master/squid3-install.sh -O squid3-install.sh
+wget https://raw.githubusercontent.com/tramvm/proxy/master/squid3-install.sh -O squid3-install.sh
 sudo bash squid3-install.sh
 ```
 
@@ -64,16 +64,16 @@ Before you can configure squid to use muliple IP address, you need to add IP to 
 Once IP added to your server, you can configure it to use with squid proxy by running following command
 
 ```
-wget https://raw.githubusercontent.com/serverok/squid-proxy-installer/master/squid-conf-ip.sh
+wget https://raw.githubusercontent.com/tramvm/proxy/master/squid-conf-ip.sh
 sudo bash squid-conf-ip.sh
 ```
 
 # Change Squid Proxy Port
 
-https://serverok.in/how-to-change-port-of-squid-proxy-server
+https://tramvm.in/how-to-change-port-of-squid-proxy-server
 
 # Support
 
 If you are looking for paid support, contact me
 
-https://serverok.in/contact
+https://tramvm.in/contact
