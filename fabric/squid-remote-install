@@ -55,7 +55,7 @@ foreach ($servers as $serverLine) {
             error_log("$line\n", 3, $logDebug);;
         }
         echo "[Done]\n";
-        error_log("$server_ip:3128:$squid_username:$squid_password\n", 3, $logFIle);;
+        error_log("$server_ip:80:$squid_username:$squid_password\n", 3, $logFIle);;
     } else {
         echo "[ERROR]: login failed - $server_ip\n";
         error_log("$server_ip,$server_user,$server_password\n", 3, $logFailed);
